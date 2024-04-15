@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject gameover_test;
+    public GameObject gameover_text;
     public Text time_text;
     public Text record_text;
 
@@ -39,7 +39,8 @@ public class GameManager : MonoBehaviour
     {
         is_gameover = true;
 
-        gameover_test.SetActive(true);
+        gameover_text.SetActive(true);
+
 
         float best_time = PlayerPrefs.GetFloat("Best_time");
 
