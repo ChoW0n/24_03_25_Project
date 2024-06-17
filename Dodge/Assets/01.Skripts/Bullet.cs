@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 8.0f;
     private Rigidbody bulletRigidbody;
+    public AudioSource audioSource2;
 
     // Start is called before the first frame update
     void Start()
@@ -13,7 +14,7 @@ public class Bullet : MonoBehaviour
         bulletRigidbody = GetComponent<Rigidbody>();
         bulletRigidbody.velocity = transform.forward * speed;
         Destroy(gameObject, 3f);
-
+        audioSource2 = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class Bullet : MonoBehaviour
             if (playerController != null)
             {
                 playerController.Die();
+                audioSource2.Play();
             }
         }
     }

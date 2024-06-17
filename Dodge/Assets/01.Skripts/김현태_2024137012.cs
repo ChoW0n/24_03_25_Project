@@ -8,142 +8,89 @@ public class 김현태_2024137012 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //2-15 문자열 변수 생성
-        string message = "안녕하세요";
+        //4-1 배열생성하고 요소에 접근하기
+        //배열을 생성합니다.
+        int[] intArray = { 52, 273, 32, 65, 103 };
 
-        Debug.Log(message + "!");
-        Debug.Log(message[0]);
-        Debug.Log(message[1]);
-        Debug.Log(message[2]);
+        //배열의 요소를 변경합니다.
+        intArray[0] = 0;
 
-        
-        Debug.Log("안녕하세요"[0]);
-        Debug.Log("안녕하세요"[1]);
-        Debug.Log("안녕하세요"[2]);
+        //요소를 출력합니다.
+        Debug.Log(intArray[0]);
+        Debug.Log(intArray[1]);
+        Debug.Log(intArray[2]);
+        Debug.Log(intArray[3]);
 
-        //sizeof 연산자와 string 자료형(불가능)
-        //Debug.Log("string : " + sizeof(string));
+        //Length 속성
+        //배열의 길이를 출력합니다.
+        Debug.Log(intArray.Length);
 
-        //2-16 불 변수 생성
-        bool one = 10 < 0;
-        bool other = 20 > 100;
+        //4-2 원하는 크기의 배열 생성
+        int[] intArray2 = new int[100];
 
-        Debug.Log(one);
-        Debug.Log(other);
+        //요소를 출력합니다
+        Debug.Log(intArray2[0]);
+        Debug.Log(intArray2[99]);
 
-        //2-17 숫자와 관련된 복합 대입 연산잔
+        //4-3 반복문 이용하기
+        //변수를 선언합니다.
+        int j = 0;
+        int[] intArray3 = { 52, 273, 32, 65, 103 };
+
+        while (j < intArray3.Length)
+        {
+            //출력합니다.
+            Debug.Log(j + "번째 출력:" + intArray3[j]);
+
+            //탈출을 위해 변수를 더합니다.
+            j++;
+        }
+
+        //4-4 do while 반복문 활용하기
+        int k = 0;
+        do
+        {
+            Debug.Log(k + ") 한번은 반드시 출력됨");
+            ++k;
+        }
+        while (k < 4);
+
+        //4-5 for 반복문으로 덧셈하기
         int output = 0;
-        output += 52;
-        output += 273;
-        output += 103;
 
+        //반복문 수행
+        for (int L = 0; L <=100; L++)
+        {
+            output += L;
+        }
         Debug.Log(output);
 
-        //2-18 문자와 관련된 복합 대입 연산자
-        string output2 = "hello";
-        output2 += "world";
-        output2 += "!!";
+        //4-7 한글 전부 출력하기
+        for (int m = '가'; m <= '힣'; m++)
+        {
+            Debug.Log((char)m);
+        }
+        //변형 예제
+        int sum = 1;
+        for (int i = 1; i <= 10; i++)
+        {
+            
+            sum *= 2;
+            Debug.Log(sum);
+        }
 
-        //2-19 증감 연산자
-        int number = 10;
-        number++;
-        Debug.Log(number);
-        number--;
-        Debug.Log(number);
+        //변형예제 별 피라미드
+        string stars;
+        for (int n = 0; n < 10; n++)
+        {
+            stars = "";
+            for (int m = 0; m < n + 1; m++)
+            {
+                stars += "*";
+            }
+            Debug.Log(stars);
 
-        //2-20 증감 연산자의 전위와 후위
-        int number2 = 10;
-        Debug.Log(number2);
-        Debug.Log(number2++);
-        Debug.Log(number2--);
-        Debug.Log(number2);
-
-        Debug.Log(number2);
-        Debug.Log(++number2);
-        Debug.Log(--number2);
-        Debug.Log(number2);
-        //2-24 강제 자료형 변화
-        //강제 자료형 변환에 따른 데이터 손실 예
-        long longNumber = 2147483647L + 2147483647L;
-        int intNumber = (int) longNumber;
-        Debug.Log(intNumber);
-
-        //강제 자료형 변환에 따른 데이터 손실 발생하지 않는 예
-        long longNumber2 = 52273;
-        int intNumber2 = (int)longNumber2;
-        Debug.Log(intNumber2);
-
-        //2-25 숫자 손상
-        //long 자료형을 int 자료형으로 변환합니다.
-        long longNumber3 = 2147483647L + 2147483647L;
-        int longToInt = (int)longNumber3;
-        Debug.Log(longToInt);
-
-        //double 자료형을 int 자료형으로 변환합니다.
-        double doubleNumber = 52.27310332;
-        int doubleToint = (int)doubleNumber;
-        Debug.Log(doubleToint);
-
-        //2-26 자동 자료형 변환
-        //int 자료형의 숫자를 생성합니다.
-        int IntNumber = 2147483647;
-
-        //int 자료형을 long 자료형으로 자동 변환 합니다.
-        long intToLong = IntNumber;
-        Debug.Log(intToLong);
-
-        //int 자료형을 double 자료형으로 자동 변환합니다.
-        double intToDouble = IntNumber;
-        Debug.Log(intToDouble);
-
-        // string 자료형을 int 자료형으로 변환하니다.(불가능)
-        //string numberString = "52273";
-        //int intNumber1 = (int)numberString;
-        //Debug.Log(intNumber1);
-
-        //2-27 문자열을 숫자로 변환
-        Debug.Log(int.Parse("52"));
-        Debug.Log(long.Parse("273"));
-        Debug.Log(float.Parse("52.273"));
-        Debug.Log(double.Parse("103.32"));
-
-        Debug.Log(int.Parse("52").GetType());
-        Debug.Log(long.Parse("273").GetType());
-        Debug.Log(float.Parse("52.273").GetType());
-        Debug.Log(double.Parse("103.32").GetType());
-
-        //FormatException 예외
-        Debug.Log(int.Parse("52.273"));
-        Debug.Log(int.Parse("abc"));
-
-        
-
-
-        //2-28 기본 자료형을 문자열로 변환
-        Debug.Log((52).ToString());
-        Debug.Log((52.273).ToString());
-        Debug.Log(('a').ToString());
-        Debug.Log((true).ToString());
-        Debug.Log((false).ToString());
-
-        Debug.Log((52).ToString().GetType());
-        Debug.Log((52.273).ToString().GetType());
-        Debug.Log(('a').ToString().GetType());
-        Debug.Log((true).ToString().GetType());
-        Debug.Log((false).ToString().GetType());
-
-        //2-29 소숫점 제거
-        double number3 = 52.273103;
-        Debug.Log(number3.ToString("0.0"));
-        Debug.Log(number3.ToString("0.00"));
-        Debug.Log(number3.ToString("0.000"));
-        Debug.Log(number3.ToString("0.0000"));
-
-        //2-30 숫자와 문자열 덧셈
-        Debug.Log(52 + 273);
-        Debug.Log("52" + 273);
-        Debug.Log(52 + "273");
-        Debug.Log("52" + "273");
+        }
     }
 
     // Update is called once per frame

@@ -6,10 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody playerRigidbody; // 이동에 사용할 리지드 바디 컴포넌트
     public float speed = 8f; // 이동 속도
+    
     // Start is called before the first frame update
     void Start()
     {
         playerRigidbody=GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Die()
     {
+        
         //자신의 게임 오브젝트를 비활성화
         gameObject.SetActive(false);
 
@@ -37,5 +40,7 @@ public class PlayerController : MonoBehaviour
         GameManager gameManager = FindObjectOfType<GameManager>();
         // 가져온게 GameManager 오브젝트의 EndGame() 메서드 실행
         gameManager.EndGame();
+
+        
     }
 }
